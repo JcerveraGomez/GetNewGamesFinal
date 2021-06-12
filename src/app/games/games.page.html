@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Libros </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <div *ngIf="visibleMenu==true">
+    
+    
+
+    <ion-card *ngFor="let item of Games"> 
+
+      <ion-card-header>
+        <ion-card-title>Juego {{item.nombre}} Plataforma : {{item.plataforma}} </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-label>Precio :</ion-label>
+        {{item.precio}}
+        <br>
+      
+        <br>        
+        <ion-button (click)="gameDetail(item.idgames)">Modificar</ion-button>
+      </ion-card-content>
+
+    </ion-card>
+  </div>
+
+
+  <div *ngIf="visibleDetails==true">
+    <ion-card > 
+
+      <ion-card-header>
+        <ion-card-title>Juego {{Game.nombre}} Plataforma : {{Game.plataforma}} </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-label>Precio :</ion-label>
+        {{Game.precio}}
+        <br>
+        <ion-label>Gastos Envio :</ion-label>
+        {{Game.gastosEnvio}}
+
+        <br>
+        <ion-label>Gastos Envio Internacional :</ion-label>
+        {{Game.gastosEnvioInternacional}}
+
+        <br>
+        <ion-label>Fecha :</ion-label>
+        {{Game.descripcion}}
+        <br>
+        <ion-label>Descripcion :</ion-label>
+        {{Game.fechaSalida}}
+        <br>
+          <ion-item>
+            <ion-label position="floating">Cantidad</ion-label>
+            <ion-input [(ngModel)]="cantidad" ></ion-input>
+          </ion-item>
+     
+          <br>
+
+        <ion-button (click)="makePurchaseNacional()">Envio Nacional</ion-button>
+
+        <ion-button (click)="makePurchaseInternacional()">Envio Internacional</ion-button>
+
+
+        <br>        
+      </ion-card-content>
+
+    </ion-card>
+  
+  </div>
+
+
+
+
+</ion-content>

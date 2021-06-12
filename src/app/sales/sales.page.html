@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Sales</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="isAdmin1 == 'true'">
+    <ion-item >  
+      <ion-label position="floating">Filter User</ion-label>
+      <ion-input [(ngModel)]="userIdInput"></ion-input>
+    </ion-item>
+    <ion-button (click)="userIdFilter()">Filtrar User</ion-button>
+
+   <br>
+    <ion-button (click)="EnvioNacionalFilter()">Filtrar Envio Nacional</ion-button>
+    <ion-button (click)="EnvioInternacionalFilter()">Filtrar Envio Internacional</ion-button>
+
+    <ion-item >  
+      <ion-label position="floating">Filter Precio</ion-label>
+      <ion-input [(ngModel)]="precioInput"></ion-input>
+    </ion-item>
+    <ion-button (click)="PriceFilter()">Filtrar Precio</ion-button>
+    <br>
+
+    <ion-card *ngFor="let item of sales"> 
+
+      <ion-card-header>
+        <ion-card-title>Venta {{item.idsale}} Comprador : {{item.iduser}} </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-label>Precio :</ion-label>
+        {{item.precio}}
+        <br>
+        <ion-label>Envio :</ion-label>
+        {{item.envio}}
+        <br>
+        <ion-label>CAntidad :</ion-label>
+        {{item.cantidad}}
+        <br>
+        <ion-label>Game :</ion-label>
+        {{item.idgame}}
+        <br>
+        
+      
+      
+        <br>        
+      </ion-card-content>
+
+    </ion-card>
+  </div>
+ 
+</ion-content>

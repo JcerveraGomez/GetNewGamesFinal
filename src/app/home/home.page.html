@@ -1,11 +1,3 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -13,8 +5,81 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+   <div  *ngIf="match == false && login==true">
+    <strong>Login</strong>
+
+    <ion-item>
+      <ion-label position="floating">User</ion-label>
+      <ion-input [(ngModel)]="useridInput"></ion-input>
+    </ion-item>
+    <ion-item>
+
+      <ion-label position="floating">PassWord</ion-label>
+      <ion-input [(ngModel)]="pwdInput"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-button (click)="matchLogin()" >Login</ion-button>
+
+    </ion-item> 
+      <ion-item>
+        <ion-button (click)="registroVisibility()" >Registro</ion-button>
+
+    </ion-item>
+  
+  </div> 
+      <strong *ngIf="registro == true">Registro</strong>
+
+      <ion-item *ngIf="registro == true">
+        <ion-label  position="floating">userId</ion-label>
+        <ion-input [(ngModel)]="userIdRegistro"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="registro == true">
+  
+        <ion-label position="floating">PassWord</ion-label>
+        <ion-input [(ngModel)]="pwdRegistro"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="registro == true">
+  
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input [(ngModel)]="nombreRegistro"></ion-input>
+      </ion-item>
+      
+      <ion-item *ngIf="registro == true">
+  
+        <ion-label position="floating">Preferencias</ion-label>
+        <ion-input [(ngModel)]="preferenciasRegistro"></ion-input>
+      </ion-item>
+      
+      <ion-item *ngIf="registro == true">
+  
+        <ion-label position="floating">Telefono</ion-label>
+        <ion-input [(ngModel)]="tlfRegistro"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="registro == true">
+        <ion-button  (click)="registroVisibility()" >Registrar</ion-button>
+
+      </ion-item>
+      
+
+    
+  
+
+    
+
+ 
+  <div  *ngIf="match == true"> 
+
+    <ion-item >
+      <ion-button [routerLink]="['/games/',useridInput]">Gestion Libros</ion-button>
+
+  </ion-item>
+  <ion-item >
+      <ion-button [routerLink]="['/sales/',isAdmin]" >Gestion Usuario</ion-button>
+
+  </ion-item>
+
   </div>
 </ion-content>
