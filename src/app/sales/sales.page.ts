@@ -10,40 +10,40 @@ import axios from 'axios';
 export class SalesPage implements OnInit {
   isAdmin1: any;
   userIdInput
-  sales=[]
+  sales = []
   envioInput: string;
 
   constructor(private _activateRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.isAdmin1 =this._activateRoute.snapshot.paramMap.get('isAdmin');
+    this.isAdmin1 = this._activateRoute.snapshot.paramMap.get('isAdmin');
     console.log(this.isAdmin1);
     this.allBooks()
-    
+
   }
-  async allBooks(){
+  async allBooks() {
     try {
-      const response = await axios.get("https://localhost:44303/api/Sale/Get",{headers: {'Access-Control-Allow-Origin': '*' }});
+      const response = await axios.get("https://localhost:44303/api/Sale/Get", { headers: { 'Access-Control-Allow-Origin': '*' } });
       console.log(response.data);
       response.data.forEach(element => {
         this.sales.push(element)
       });
-     
+
     } catch (error) {
       console.error(error);
     }
-  
+
   }
-  async userIdFilter(){
-    this.sales=[]
+  async userIdFilter() {
+    this.sales = []
     try {
-      const response = await axios.get("https://localhost:44303/api/Sale/Get/User/"+this.userIdInput,{headers: {'Access-Control-Allow-Origin': '*' }});
+      const response = await axios.get("https://localhost:44303/api/Sale/Get/User/" + this.userIdInput, { headers: { 'Access-Control-Allow-Origin': '*' } });
       console.log(response.data);
       response.data.forEach(element => {
         this.sales.push(element)
       });
       console.log(this.sales)
-     
+
     } catch (error) {
       console.error(error);
     }
@@ -51,16 +51,16 @@ export class SalesPage implements OnInit {
 
 
   }
-  async EnvioNacionalFilter(){
-    this.sales=[]
+  async EnvioNacionalFilter() {
+    this.sales = []
 
     try {
-      const response = await axios.get("https://localhost:44303/api/Sale/GetN",{headers: {'Access-Control-Allow-Origin': '*' }});
+      const response = await axios.get("https://localhost:44303/api/Sale/GetN", { headers: { 'Access-Control-Allow-Origin': '*' } });
       console.log(response.data);
       response.data.forEach(element => {
         this.sales.push(element)
       });
-     
+
     } catch (error) {
       console.error(error);
     }
@@ -68,16 +68,16 @@ export class SalesPage implements OnInit {
 
 
   }
-  async EnvioInternacionalFilter(){
-    this.sales=[]
+  async EnvioInternacionalFilter() {
+    this.sales = []
 
     try {
-      const response = await axios.get("https://localhost:44303/api/Sale/GetI",{headers: {'Access-Control-Allow-Origin': '*' }});
+      const response = await axios.get("https://localhost:44303/api/Sale/GetI", { headers: { 'Access-Control-Allow-Origin': '*' } });
       console.log(response.data);
       response.data.forEach(element => {
         this.sales.push(element)
       });
-     
+
     } catch (error) {
       console.error(error);
     }
@@ -85,16 +85,16 @@ export class SalesPage implements OnInit {
 
 
   }
-  async PriceFilter(){
-    this.sales=[]
+  async PriceFilter() {
+    this.sales = []
 
     try {
-      const response = await axios.get("https://localhost:44303/api/Game/Get",{headers: {'Access-Control-Allow-Origin': '*' }});
+      const response = await axios.get("https://localhost:44303/api/Game/Get", { headers: { 'Access-Control-Allow-Origin': '*' } });
       console.log(response.data);
       response.data.forEach(element => {
         this.sales.push(element)
       });
-     
+
     } catch (error) {
       console.error(error);
     }

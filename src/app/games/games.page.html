@@ -5,12 +5,12 @@
 </ion-header>
 
 <ion-content>
-  
-  <div *ngIf="visibleMenu==true">
-    
-    
 
-    <ion-card *ngFor="let item of Games"> 
+  <div *ngIf="visibleMenu==true">
+
+
+
+    <ion-card *ngFor="let item of Games">
 
       <ion-card-header>
         <ion-card-title>Juego {{item.nombre}} Plataforma : {{item.plataforma}} </ion-card-title>
@@ -19,8 +19,8 @@
         <ion-label>Precio :</ion-label>
         {{item.precio}}
         <br>
-      
-        <br>        
+
+        <br>
         <ion-button (click)="gameDetail(item.idgames)">Modificar</ion-button>
       </ion-card-content>
 
@@ -29,7 +29,7 @@
 
 
   <div *ngIf="visibleDetails==true">
-    <ion-card > 
+    <ion-card>
 
       <ion-card-header>
         <ion-card-title>Juego {{Game.nombre}} Plataforma : {{Game.plataforma}} </ion-card-title>
@@ -52,23 +52,23 @@
         <ion-label>Descripcion :</ion-label>
         {{Game.fechaSalida}}
         <br>
-          <ion-item>
-            <ion-label position="floating">Cantidad</ion-label>
-            <ion-input [(ngModel)]="cantidad" ></ion-input>
-          </ion-item>
-     
-          <br>
+        <ion-item>
+          <ion-label position="floating">Cantidad</ion-label>
+          <ion-input [(ngModel)]="cantidad"></ion-input>
+        </ion-item>
+
+        <br>
 
         <ion-button (click)="makePurchaseNacional()">Envio Nacional</ion-button>
 
         <ion-button (click)="makePurchaseInternacional()">Envio Internacional</ion-button>
 
 
-        <br>        
+        <br>
       </ion-card-content>
 
     </ion-card>
-  
+
   </div>
 
 
